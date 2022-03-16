@@ -1,7 +1,0 @@
-POM - Project Objet Model, is called the heart of a project
-We need to add selenium once in a single project
-
-#chrome driver launch format - System.setProperty("webdriver.chrome.driver","./Drivers/chromedriver.exe")
-- here, first string is default for chrome and should be written manually,
-- and second string indicates the exact location of the driver
-
