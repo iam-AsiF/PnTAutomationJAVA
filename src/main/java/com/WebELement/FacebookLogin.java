@@ -24,8 +24,8 @@ public class FacebookLogin {
     }
     public static void loginTestCase01(){
         //default command driver.findElement(By.)
-        WebElement email = driver.findElement(By.id("id=\"email\""));
-        WebElement password = driver.findElement(By.id("id=\"pass\""));
+        WebElement email = driver.findElement(By.id("email"));
+        WebElement password = driver.findElement(By.id("pass"));
         WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"loginbutton\"]"));
         //considered Xpath for login field
 

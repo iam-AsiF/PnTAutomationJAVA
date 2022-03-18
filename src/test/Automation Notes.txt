@@ -1,23 +1,22 @@
 POM - Project Objet Model, is called the heart of a project
 We need to add selenium once in a single project
-
+---------------------------------------------------------------------------------------------------
 Automation Starts from Here:-
 
-1. chrome driver launch format - System.setProperty("webdriver.chrome.driver","./Drivers/chromedriver.exe")
+1. chrome driver launch format - System.setProperty("webdriver.chrome.driver","./driver's path location")
 - here, first string is default for chrome and should be written manually,
 - and second string indicates the exact location of the driver
-
+---------------------------------------------------------------------------------------------------
 2. Browser Closing
 Close - it will only close the active tab
 Quit - it will close the whole browser
-
+---------------------------------------------------------------------------------------------------
 3. Full window browser opening:
 firefox usually opens window with full screen, while chrome cannot
 take full window. So we need to command chrome to take full screen.
 it's called 'browser maximize.'
-
+---------------------------------------------------------------------------------------------------
 4. Web Element: Anything present in a website is called web element.
-
 there are 8 ways to find an elements exact position to a webpage. Those
 are - ID, Name, Class Name, Tag Name, Link Text, Partial Link Text,
 Xpath, and CSS.
@@ -25,3 +24,7 @@ Commonly Used - ID, Name, Xpath, and CSS
 CSS - also knows as selector in the html code option
 Should maintain order sequence while considering a task.
 
+Method types-
+click(); -
+clear(); -
+submit(); -
