@@ -1,26 +1,28 @@
 POM - Project Objet Model, is called the heart of a project
 We need to add selenium once in a single project
----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 Automation Starts from Here:-
 
-1. chrome driver launch format - System.setProperty("webdriver.chrome.driver","./driver's path location")
+1. chrome driver launch format
+- System.setProperty("webdriver.chrome.driver","./driver's path location")
 - here, first string is default for chrome and should be written manually,
 - and second string indicates the exact location of the driver
----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 2. Browser Closing
 Close - it will only close the active tab
 Quit - it will close the whole browser
----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 3. Full window browser opening:
 firefox usually opens window with full screen, while chrome cannot
 take full window. So we need to command chrome to take full screen.
 it's called 'browser maximize.'
----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 4. Web Element: Anything present in a website is called web element.
 there are 8 ways to find an elements exact position to a webpage. Those
 are - ID, Name, Class Name, Tag Name, Link Text, Partial Link Text,
 Xpath, and CSS.
 Commonly Used - ID, Name, Xpath, and CSS
+Link Text - Preferable for menu, sub-menu tab of webpage
 CSS - also knows as selector in the html code option
 Should maintain order sequence while considering a task.
 
@@ -28,3 +30,47 @@ Method types-
 click(); -
 clear(); -
 submit(); -
+------------------------------------------------------------------------------------------
+                                        Class - 12
+
+It is needed to call every method sequentially else the code will not work.
+suppose if I close a browser before launching it that will not make any sense.
+------------------------------------------------------------------------------------------
+if I want to wait for moment before closing the browser we need to use the
+function 'thread.sleep()', it takes input as milliseconds.
+------------------------------------------------------------------------------------------
+To show text message of a web element we need to use 'get.Text()' command
+To get a website's title we need to use 'get.title()' method
+To get a current page's url we need to use 'get.CurrentUrl()' method
+
+To make a line of codes as a comment press - 'ctrl + shift + /
+------------------------------------------------------------------------------------------
+Random String Generator-
+StringBuild - a java class to arrange a bunch of chars into a string
+Random - a class to arrange those chars randomly
+append - a method to put every single char after one another
+
+for Inheritance we need to use 'entends' command
+------------------------------------------------------------------------------------------
+Navigation-
+we use navigation to check if a given input in a page is still there and matches
+with the actual input whenever we go backward and then forward to that page.
+to surf webpages back and forth without clicking back and go back
+to =go one page from another we use 'driver.navigate().to("url")'
+to go =backward from one pager we use 'driver.navigate().back()'
+to go =forward from one pager we use 'driver.navigate().forward()'
+to =reload a page we use 'driver.navigate().refresh()'
+------------------------------------------------------------------------------------------
+Basic Authentication(Auth)-
+used in highly secured webpage, a popup with asking username and pass to
+enter the required page, where no option for inspection to check id, name,
+xPath. For that selenium has built a special process.
+
+so, we need to use 'driver.get(StringUrl)' and in the Url field we need to put
+username and password in the address field after the protocol such as -
+(https://Username:Password@the-internet.herokuapp.com/basic_auth)
+------------------------------------------------------------------------------------------
+
+
+
+
