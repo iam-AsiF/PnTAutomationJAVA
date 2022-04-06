@@ -10,10 +10,10 @@ public class Login extends BaseClass {
         chrome_launch();
         open_website("https://demo.opencart.com/");
 
-        //Login_Invalid_TestCase01();
-
-        Login_Valid_TestCase01();
+        Login_Invalid_TestCase01();
         Thread.sleep(3000);
+
+        //Login_Valid_TestCase01();
 
         close_browser();
     }
@@ -74,12 +74,12 @@ public class Login extends BaseClass {
 
         loginButton.click();
 
-        // verify message by URL
+        // verify login message by URL
         String Expected_Login_Page_Url = "https://demo.opencart.com/index.php?route=account/account";
         String Login_Page_Url = driver.getCurrentUrl();
 
         if (Expected_Login_Page_Url.equalsIgnoreCase(Login_Page_Url)){
-            System.out.println("Test Passed, Login Successfull");
+            System.out.println("Test Passed, Login Successful");
         }
         else {
             System.out.println("Test failed, a Bug has been found");

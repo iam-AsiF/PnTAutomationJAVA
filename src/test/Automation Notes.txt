@@ -10,7 +10,7 @@ Automation Starts from Here:-
 ------------------------------------------------------------------------------------------
 2. Browser Closing
 Close - it will only close the active tab
-Quit - it will close the whole browser
+Quit - it will close the whole browser app
 ------------------------------------------------------------------------------------------
 3. Full window browser opening:
 firefox usually opens window with full screen, while chrome cannot
@@ -61,7 +61,7 @@ to go =backward from one pager we use 'driver.navigate().back()'
 to go =forward from one pager we use 'driver.navigate().forward()'
 to =reload a page we use 'driver.navigate().refresh()'
 ------------------------------------------------------------------------------------------
-Basic Authentication(Auth)-
+Basic Auth(Authentication)-
 used in highly secured webpage, a popup with asking username and pass to
 enter the required page, where no option for inspection to check id, name,
 xPath. For that selenium has built a special process.
@@ -70,6 +70,81 @@ so, we need to use 'driver.get(StringUrl)' and in the Url field we need to put
 username and password in the address field after the protocol such as -
 (https://Username:Password@the-internet.herokuapp.com/basic_auth)
 ------------------------------------------------------------------------------------------
+                                        Class - 13
+
+Input field check -
+When we put a data in the input field and do want to check whether that field
+took actual given data or not, for that we can use get.Text() or, get.Attribute()
+------------------------------------------------------------------------------------------
+Multiple Window -
+- Parent/Child tab
+- every tab has a unique ID called GUID(Globally Unique Identifier)
+- to get the tab's GUID we use getWindowHandle(); for single Guid and
+getWindowHandles(); for multiple window's GUID.
+- set<String> - to put multiple strings in a single String list - it is same as array
+------------------------------------------------------------------------------------------
+Alert -
+a popup window that works with javaScript, when it pops up the whole window
+will become inactive. that's a problem for testing.
+Alert type - three types -  normal(ok), confirm(ok, cancel), prompt(input filed,
+ok, cancel)
+meaning -> ok - True ; cancel - False
+
+example - suppose a website asking for cookie permission, microphone or
+camera permission popup.
+For better example visit the link -
+https://the-internet.herokuapp.com/javascript_alerts
+------------------------------------------------------------------------------------------
+Dropdown -
+If we inspect the dropdown box we will see 'Select' tag name, this will indicate
+that line as a dropdown command.
+In  selenium there's already a Select class to make it as like as html
+
+There are three ways to select a dropdown value -
+i. Select by Value
+ii. Select by Index
+iii. Select by Visible Text
+------------------------------------------------------------------------------------------
+Screenshot -
+Command
+File scrFile = ((TakesScreenshot)searchBar).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(scrFile,new File("./Screenshots/Google Search Bar.png"), true);
+FileUtils.copyFile(scrFile,new File("./Screenshots/File_Name.png"), true);
+------------------------------------------------------------------------------------------
+                                        Class - 14
+
+Unit Testing - We use testNG for the Unit Testing
+
+@Test - @ means annotation
+Assertion - verify something - an equation 0r, a condition Or, an array comparison.
+It is same as if/else formula but in a short line.
+
+TestNG -
+test will run according to the naming letter format.
+priority list - Upper case, Lower case, Letter
+
+to call a test according to our choice we can use priority method.
+step - @Test(priority = 0/1/2.. , description = "");
+
+Before Test - After Test - method - executes only one time
+so that we don't have to run everything more than once that is not needed.
+for example, browser open, url, close browser.
+
+DependsOnMethod - when one test is dependent on other test. for example,
+we want to send a mail. so if we can't login to the mail account we can't send
+a mail.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

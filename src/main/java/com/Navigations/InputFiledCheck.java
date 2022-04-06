@@ -80,7 +80,7 @@ public class InputFiledCheck extends BaseClass {
         String Actual_first_name = first_name.getText();
 
         if (Expected_first_Name.equalsIgnoreCase(Actual_first_name)){
-            System.out.println("Test Passed for the first name field");
+            System.out.println("Text matched for the first name field");
         }
         else{
             System.out.println("Test Failed, a bug has been found in the first name field");
@@ -91,7 +91,7 @@ public class InputFiledCheck extends BaseClass {
         String Actual_last_name = last_name.getText();
 
         if (Expected_last_Name.equalsIgnoreCase(Actual_last_name)){
-            System.out.println("Test Passed for the last name field");
+            System.out.println("Text matched for the last name field");
         }
         else{
             System.out.println("Test Failed, a bug has been found in the last name field");
@@ -102,7 +102,7 @@ public class InputFiledCheck extends BaseClass {
         String Actual_email = present_email.getText();
 
         if (Expected_email.equalsIgnoreCase(Actual_email)){
-            System.out.println("Test Passed for the email field");
+            System.out.println("Text matched for the email field");
         }
         else{
             System.out.println("Test Failed, a bug has been found in the email field");
@@ -113,7 +113,7 @@ public class InputFiledCheck extends BaseClass {
         String Actual_telephone = present_telephone.getText();
 
         if (Expected_telephone.equalsIgnoreCase(Actual_telephone)){
-            System.out.println("Test Passed for the telephone field");
+            System.out.println("Text matched for the telephone field");
         }
         else{
             System.out.println("Test Failed, a bug has been found in the telephone field");
