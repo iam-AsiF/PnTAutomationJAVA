@@ -1,7 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testing.org/testing-1.0.dtd">
-
-<suite name = "Login">
-
-    <test name = "Login">
-        <classes>
-            <>

@@ -1,0 +1,223 @@
+POM - Project Objet Model, is called the heart of a project
+We need to add selenium once in a single project
+------------------------------------------------------------------------------------------
+Automation Starts from Here:-
+
+1. chrome driver launch format
+- System.setProperty("webdriver.chrome.driver","./driver's path location")
+- here, first string is default for chrome and should be written manually,
+- and second string indicates the exact location of the driver
+------------------------------------------------------------------------------------------
+2. Browser Closing
+Close - it will only close the active tab
+Quit - it will close the whole browser app
+------------------------------------------------------------------------------------------
+3. Full window browser opening:
+firefox usually opens window with full screen, while chrome cannot
+take full window. So we need to command chrome to take full screen.
+it's called 'browser maximize.'
+------------------------------------------------------------------------------------------
+4. Web Element: Anything present in a website is called web element.
+there are 8 ways to find an elements exact position to a webpage. Those
+are - ID, Name, Class Name, Tag Name, Link Text, Partial Link Text,
+Xpath, and CSS.
+Commonly Used - ID, Name, Xpath, and CSS
+Link Text - Preferable for menu, sub-menu tab of webpage
+CSS - also knows as selector in the html code option
+Should maintain order sequence while considering a task.
+
+Method types-
+click(); -
+clear(); -
+submit(); -
+
+---------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+                                        Class - 12
+
+It is needed to call every method sequentially else the code will not work.
+suppose if I close a browser before launching it that will not make any sense.
+------------------------------------------------------------------------------------------
+if I want to wait for moment before closing the browser we need to use the
+keyword 'thread.sleep()', it takes input as milliseconds.
+------------------------------------------------------------------------------------------
+To show text message of a web element we need to use 'get.Text()' command
+To get a website's title we need to use 'get.title()' method
+To get a current page's url we need to use 'get.CurrentUrl()' method
+
+To make a line of codes as a comment press - 'ctrl + shift + /
+------------------------------------------------------------------------------------------
+Random String Generator-
+StringBuild - a java class to arrange a bunch of chars into a string
+Random - a class to arrange those chars randomly
+append - a method to put every single char after one another
+
+for Inheritance we need to use 'entends' command
+------------------------------------------------------------------------------------------
+Navigation-
+- we use navigation to check if a given input in a page is still there and matches
+  with the actual input whenever we go backward and then forward to that page.
+- to surf webpages back and forth without clicking back and go back
+- to =go one page from another we use 'driver.navigate().to("url")'
+- to go =backward from one pager we use 'driver.navigate().back()'
+- to go =forward from one pager we use 'driver.navigate().forward()'
+- to =reload a page we use 'driver.navigate().refresh()'
+------------------------------------------------------------------------------------------
+Basic Auth(Authentication)-
+used in highly secured webpage, a popup with asking username and pass to
+enter the required page, where no option for inspection to check id, name,
+xPath. For that selenium has built a special process.
+
+so, we need to use 'driver.get(StringUrl)' and in the Url field we need to put
+username and password in the address field after the protocol such as -
+(https://Username:Password@the-internet.herokuapp.com/basic_auth)
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+                                        Class - 13
+
+Input field check -
+When we put a data in the input field and do want to check whether that field
+took actual given data or not, for that we can use get.Text() or, get.Attribute()
+------------------------------------------------------------------------------------------
+Multiple Window -
+- Parent/Child tab
+- every tab has a unique ID called GUID(Globally Unique Identifier)
+- to get the tab's GUID we use getWindowHandle(); for single Guid and
+  getWindowHandles(); for multiple window's GUID.
+- set<String> - to put multiple strings in a single String list - it is same as array
+------------------------------------------------------------------------------------------
+Alert -
+- a popup window that works with javaScript, when it pops up the whole window
+  will become inactive. that's a problem for testing.
+Alert type - three types -  normal(ok), confirm(ok, cancel), prompt(input filed,
+ok, cancel)
+meaning -> ok - True ; cancel - False
+
+example - suppose a website asking for cookie permission, microphone or
+camera permission popup.
+For better example visit the link -
+https://the-internet.herokuapp.com/javascript_alerts
+------------------------------------------------------------------------------------------
+Dropdown -
+- If we inspect the dropdown box we will see 'Select' tag name, this will indicate
+  that line as a dropdown command.
+- In  selenium there's already a Select class to make it as like as html
+
+There are three ways to select a dropdown value -
+i. Select by Value
+ii. Select by Index
+iii. Select by Visible Text
+------------------------------------------------------------------------------------------
+Screenshot -
+Command
+File scrFile = ((TakesScreenshot)searchBar).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(scrFile,new File("./Screenshots/Google Search Bar.png"), true);
+FileUtils.copyFile(scrFile,new File("./Screenshots/File_Name.png"), true);
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+                                        Class - 14
+
+- testNG library addition to Project Structure libraries
+- Unit Testing - We use testNG for the Unit Testing
+- Test Report - we can make test report with testNG, not possible with selenium.
+------------------------------------------------------------------------------------------
+@Test - @ means Annotation
+- Assertion - verify something - an equation 0r, a condition Or, an array comparison.
+- It is same as if/else formula but in a line.
+- It has two part, Actual and Expected
+------------------------------------------------------------------------------------------
+TestNG -
+- test will run according to the naming letter format.
+- priority list - Upper case, Lower case, Letter
+------------------------------------------------------------------------------------------
+- description - to describe specific test scenarios in the test report.
+  step - @Test(description = "message")
+------------------------------------------------------------------------------------------
+Priority -
+- selenium uses its own priority for test cases - Upper case - Lower case
+  example - testCase_valid_001, testCase_invalid_002. Here invalid will run first
+  since its order is first.
+- So, to call a test according to our choice we can use priority method.
+  step - @Test(priority = 0/1/2.. , description = "");
+- priority can be both minus and plus value
+------------------------------------------------------------------------------------------
+- Suppose, we don't want to run a specific test case between 4 test cases. For
+  that, we can use 'enabled = false' function.
+- Example - @Test(enabled = false, priority = 1, description = "Email invalid and
+  password invalid")
+------------------------------------------------------------------------------------------
+Annotations -
+- Before class - After class - it runs methods only once
+- Before Test - After Test - it runs methods only once
+- Before method - After method - it will run method for every single @Test
+- Before Suite - After Suite -
+- so that we don't have to run everything more than once that is not needed.
+  for example, browser open, url, close browser.
+------------------------------------------------------------------------------------------
+dependsOnMethods-
+- When one test is dependent on other test.
+- For example, we want to send a mail. so if we can't log in to the mail account
+  we can't send a mail.
+- If the independent test case is failed the dependent test case will not run
+------------------------------------------------------------------------------------------
+Report Making-
+- we need a xml file to create a report. step - new file - name.xml - right click -
+  run
+- next - menu - run - edit config - Listeners - + - add - EmailAndReport - apply
+- again - run xml - test-output folder - open in - browser
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+                                        Class - 15
+
+Cross Browser Testing -
+to add every browser app driver in the code
+- It will become a hassle to use driver path command - System.setProperty
+  ("webdriver.chrome.driver", "./Drivers/chromedriver.exe"); because everytime
+  there's a new browser update we will need to add the driver.exe file for every
+  new version. for that we can use WebDriverManager developed by BoniGarcia.
+  link - https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.1.1
+------------------------------------------------------------------------------------------
+Data Provider -
+Array - always works on horizontal way
+Excel - always works on vertical way
+- it is workable and easy to use when there is less amount data like 4-5 to input.
+------------------------------------------------------------------------------------------
+Data Driven -
+- but when there are 100 or 1000 of data we need to directly import that Excel
+  file.
+- Now there is no selenium default library for Excel, we need to import library
+  externally.
+- Whenever we want to use an Excel file in the code that file should be closed.
+- Library List - mvnRepositories
+  # Founder - Apache
+  i.  POI Common
+  ii.  Poi-Ooxml
+  iii.  Poi-Ooxml-schemas
+  iv.  xmlBeans
+  v.  Poi-Scratchpad
+- Poi Common must be used 4.1.2 version else, Xls_Reader with not work
+- if there is still problem then previous version need to used for other libraries
+
+- If we want to write data in the Excel file we need to use setCellData to write
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
