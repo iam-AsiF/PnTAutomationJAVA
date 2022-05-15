@@ -22,6 +22,7 @@ public class DP_LoginTest {
 
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
+            driver.manage().window().maximize();
         }
         else if (browser_name.equalsIgnoreCase("chrome")) {
 
@@ -75,7 +76,10 @@ public class DP_LoginTest {
     @DataProvider(name = "Login_invalid_data")
     public Object [][] data(){
 
-        Object[][] data = new Object [4][2];
+        /*Suppose there are few amount data less tha ten, so we can put them
+        * one by one like this here*/
+
+        Object[][] data = new Object [3][2];
 
         //Set 1
         data [0][0] = "babatunde16@outlook.com";

@@ -3,9 +3,9 @@
 <suite name = "Login">
 
     <test name="Login Functional Test in Chrome">
-        <parameter name="browsers" value="firefox"></parameter>
+        <parameter name="browsers" value="edge"></parameter>
         <classes>
-            <class name="com.DataDriven.DD_LoginTestAdvanced"></class>
+            <class name="com.DataDriven.DD_LoginTest"></class>
         </classes>
     </test>
 

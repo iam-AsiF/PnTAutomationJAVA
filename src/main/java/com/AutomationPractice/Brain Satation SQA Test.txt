@@ -1,0 +1,16 @@
+Please use selenium, testing and project
+object model POM. use any programming 
+language.
+
+1. http://automationpractice.com/index.php
+2. create two new accounts
+3. login with any of the accounts
+4. go to the casual dress section and add a 
+   dress to the cart, continue shopping
+5. go to t-shirt section > filter the list with 
+    blue color > add a t-shirt from the filter list
+6. now check-out and select payment process
+   'payment by check'
+7. sign out fro the account
+
+Now run the above cycle for another user.

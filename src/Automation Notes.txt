@@ -22,7 +22,11 @@ there are 8 ways to find an elements exact position to a webpage. Those
 are - ID, Name, Class Name, Tag Name, Link Text, Partial Link Text,
 Xpath, and CSS.
 Commonly Used - ID, Name, Xpath, and CSS
+
 Link Text - Preferable for menu, sub-menu tab of webpage
+- to use this method - inspect - search for text - copy - find element by - link
+  text - paste that text
+
 CSS - also knows as selector in the html code option
 Should maintain order sequence while considering a task.
 
@@ -30,6 +34,24 @@ Method types-
 click(); -
 clear(); -
 submit(); -
+
+Mouse Hover and click action - Web Element - Actions class
+- If there is floating tab. or sub-menu - tab shows only by moving the mouse
+  then we need to use action.moveToElement() method
+- steps
+         // Locating the Main Menu (Parent element)
+         WebElement mainMenu = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a"));
+          // Locating the element from Sub Menu
+         WebElement subMenu   = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]/a"));
+
+          //Instantiating Actions class
+         Actions action = new Actions(driver);
+
+          //Hovering on main menu
+         action.moveToElement(mainMenu).perform();
+         Thread.sleep(2000);
+          //To mouseover on sub menu
+         action.click(subMenu).perform();
 
 ---------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------
@@ -122,7 +144,7 @@ FileUtils.copyFile(scrFile,new File("./Screenshots/File_Name.png"), true);
 
                                         Class - 14
 
-- testNG library addition to Project Structure libraries
+- TestNG library addition to Project Structure libraries
 - Unit Testing - We use testNG for the Unit Testing
 - Test Report - we can make test report with testNG, not possible with selenium.
 ------------------------------------------------------------------------------------------
@@ -207,7 +229,19 @@ Data Driven -
 - if there is still problem then previous version need to used for other libraries
 
 - If we want to write data in the Excel file we need to use setCellData to write
--
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+                                        Class - 16
+
+
+
+                                        Class - 18
+
+
+
+
 
 
 

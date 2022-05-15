@@ -1,5 +1,6 @@
 package com.WebELement;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,11 @@ public class FacebookLogin {
     }
 
     public static void chrome_launch() {
-        System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+        /*System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+        driver = new ChromeDriver();*/
+
+        // Or, using Boni Garcia's driver installer
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
         driver.manage().window().maximize();
