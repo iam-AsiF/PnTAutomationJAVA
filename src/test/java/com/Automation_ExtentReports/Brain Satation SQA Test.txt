@@ -11,6 +11,6 @@ language.
     blue color > add a t-shirt from the filter list
 6. now check-out and select payment process
    'payment by check'
-7. sign out fro the account
+7. sign out from the account
 
 Now run the above cycle for another user.

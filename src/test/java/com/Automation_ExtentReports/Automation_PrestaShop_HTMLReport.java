@@ -1,5 +1,9 @@
-package com.Automation_BrainStation23;
+package com.Automation_ExtentReports;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +19,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class AutomationPractice_PrestaShop {
+public class Automation_PrestaShop_HTMLReport {
     static WebDriver driver;
+
+    // Implementation of ExtentReport with three main classes
+    ExtentHtmlReporter htmlReporter;
+    ExtentReports reports;
+    ExtentTest logger;
 
     @BeforeClass
     @Parameters("browsers")
@@ -56,21 +65,35 @@ public class AutomationPractice_PrestaShop {
     @Test(description = "for first user")
     public  void first_user() throws InterruptedException {
 
+        //Implementation of Extent Reports
+        htmlReporter = new ExtentHtmlReporter("./ExtentReports/TestReport.html");
+        reports = new ExtentReports();
+        reports.attachReporter(htmlReporter);
+
+        //adding info to the report
+        reports.setSystemInfo("Module","Presta Shop");
+        reports.setSystemInfo("Tested by","Asif");
+        reports.setSystemInfo("OS","Windows 11 Home");
+        reports.setSystemInfo("Browser","Chrome");
+
+        logger = reports.createTest("For first user");
+
+
         //First user creation
         driver.get("http://automationpractice.com/index.php");
-        Reporter.log("Opening Automation Practice home page");
+        logger.log(Status.INFO, "Opening Automation Practice home page");
         WebElement signIn = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
         signIn.click();
-        Reporter.log("Opening account creation page");
+        logger.log(Status.INFO,"Opening account creation page");
 
         //email field only page
         WebElement emailAddress = driver.findElement(By.id("email_create"));
-        emailAddress.sendKeys("bluhbluh20@gmail.com");
-        Reporter.log("Email entered");
+        emailAddress.sendKeys("bluhbluh71@gmail.com");
+        logger.log(Status.INFO,"Email entered");
 
         WebElement createAnAccount = driver.findElement(By.xpath("//*[@id=\"SubmitCreate\"]/span"));
         createAnAccount.click();
-        Reporter.log("User creation page opened");
+        logger.log(Status.INFO,"User creation page opened");
         Thread.sleep(3000);
 
         //Actual registration page
@@ -96,16 +119,16 @@ public class AutomationPractice_PrestaShop {
 
 
         title_Mr.click();
-        Reporter.log("title selected");
+        logger.log(Status.INFO,"title selected");
 
         firstName.sendKeys("Atif");
-        Reporter.log("First name entered");
+        logger.log(Status.INFO,"First name entered");
 
         lastName.sendKeys("Khan");
-        Reporter.log("Last name entered");
+        logger.log(Status.INFO,"Last name entered");
 
         password.sendKeys("abc123");
-        Reporter.log("Password entered");
+        logger.log(Status.INFO,"Password entered");
 
         Select slt1 = new Select(dateOfBirthDay);
         slt1.selectByIndex(10);
@@ -115,40 +138,40 @@ public class AutomationPractice_PrestaShop {
         slt3.selectByValue("1995");
 
         newsletter.click();
-        Reporter.log("Newsletter offer in mail accepted");
+        logger.log(Status.INFO,"Newsletter offer in mail accepted");
 
         specialOffers.click();
-        Reporter.log("Special offer in mail accepted");
+        logger.log(Status.INFO,"Special offer in mail accepted");
 
         addressCompany.sendKeys("863-409-4849");
-        Reporter.log("Company name entered");
+        logger.log(Status.INFO,"Company name entered");
 
         addressAddress1.sendKeys("317 Pierce Avenue");
-        Reporter.log("Address entered");
+        logger.log(Status.INFO,"Address entered");
 
         addressAddress2.sendKeys("FL 32818");
-        Reporter.log("Address line 1 entered");
+        logger.log(Status.INFO,"Address line 1 entered");
 
         city.sendKeys("LAKELAND");
-        Reporter.log("City name entered");
+        logger.log(Status.INFO,"City name entered");
 
         Select slt = new Select(state);
         slt.selectByIndex(9);
 
         zip.sendKeys("32818");
-        Reporter.log("Zip/Postal code entered");
+        logger.log(Status.INFO,"Zip/Postal code entered");
 
         addiInfo.sendKeys("Nothing");
-        Reporter.log("Additional info entered");
+        logger.log(Status.INFO,"Additional info entered");
 
         phone.sendKeys("863-409-5895");
-        Reporter.log("Phone number entered");
+        logger.log(Status.INFO,"Phone number entered");
 
         mobile.sendKeys("863-409-4849");
-        Reporter.log("Mobile number entered");
+        logger.log(Status.INFO,"Mobile number entered");
 
         register.click();
-        Reporter.log("Account created successfully");
+        logger.log(Status.INFO,"Account created successfully");
 
         //Dress to Casual dress section
         //here we need to use mouse to hover method because of floating menu
@@ -160,7 +183,7 @@ public class AutomationPractice_PrestaShop {
         action.moveToElement(dresses).perform();
         Thread.sleep(2000);
         action.click(casualDresses).perform();
-        Reporter.log("Casual dresses option selected");
+        logger.log(Status.INFO,"Casual dresses option selected");
 
         //Add to cart
         WebElement printedDress = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/h5/a"));
@@ -176,12 +199,12 @@ public class AutomationPractice_PrestaShop {
         //since it is also a floating tab, we can use mouse hover method
         WebElement continueShopping = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/span/span"));
         action.click(continueShopping).perform();
-        Reporter.log("Continue shopping option clicked");
+        logger.log(Status.INFO,"Continue shopping option clicked");
 
         // Selecting t-shirt tab
         WebElement tShirt = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[3]/a"));
         tShirt.click();
-        Reporter.log("T-Shirt option selected");
+        logger.log(Status.INFO,"T-Shirt option selected");
 
         //Selecting a t-Shirt
         WebElement fadedShortSleeveTShirt = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/h5/a"));
@@ -189,17 +212,17 @@ public class AutomationPractice_PrestaShop {
 
         action.moveToElement(fadedShortSleeveTShirt).perform();
         action.click(more).perform();
-        Reporter.log("Faded Short Sleeve t-Shirt selected");
+        logger.log(Status.INFO,"Faded Short Sleeve t-Shirt selected");
 
         // choosing Blue color
         WebElement blueColor = driver.findElement(By.id("color_14"));
         blueColor.click();
-        Reporter.log("t-Shirt color blue selected");
+        logger.log(Status.INFO,"t-Shirt color blue selected");
 
         //Adding blue t-shirt to the cart
         WebElement addToCartB = driver.findElement(By.xpath("//*[@id=\"add_to_cart\"]/button/span"));
         addToCartB.click();
-        Reporter.log("Blue t-shirt added to the cart");
+        logger.log(Status.INFO,"Blue t-shirt added to the cart");
         Thread.sleep(2000);
 
         WebElement proceedToCheckout = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span"));
@@ -208,58 +231,75 @@ public class AutomationPractice_PrestaShop {
         //Cart summery page
         WebElement proceedCheckoutSu = driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span"));
         proceedCheckoutSu.click();
-        Reporter.log("Proceed checkout option in Summery clicked");
+        logger.log(Status.INFO,"Proceed checkout option in Summery clicked");
 
         //Address summery
         WebElement proceedCheckoutA = driver.findElement(By.xpath("//*[@id=\"center_column\"]/form/p/button/span"));
         proceedCheckoutA.click();
-        Reporter.log("Proceed checkout option in Address clicked");
+        logger.log(Status.INFO,"Proceed checkout option in Address clicked");
 
         //Shipping summery
         WebElement termsService = driver.findElement(By.id("cgv"));
         WebElement proceedCheckoutSh = driver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span"));
 
         termsService.click();
-        Reporter.log("Terms of services agreed");
+        logger.log(Status.INFO,"Terms of services agreed");
 
         proceedCheckoutSh.click();
-        Reporter.log("Proceed checkout option in Shipping clicked");
+        logger.log(Status.INFO,"Proceed checkout option in Shipping clicked");
 
         //Payment option
         WebElement payByCheck = driver.findElement(By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[2]/div/p/a/span"));
         payByCheck.click();
-        Reporter.log("Pay by check option selected");
+        logger.log(Status.INFO,"Pay by check option selected");
 
         //Placing order
         WebElement confirmOrder = driver.findElement(By.xpath("//*[@id=\"cart_navigation\"]/button/span"));
         confirmOrder.click();
-        Reporter.log("Order confirmed");
+        logger.log(Status.INFO,"Order confirmed successfully");
 
         //Signing off
         WebElement signOut = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[2]/a"));
         signOut.click();
-        Reporter.log("Signed out");
+        logger.log(Status.INFO,"Signed out successfully");
+
+        logger.log(Status.PASS,"Test Passed");
+
+        reports.flush();
 
     }
 
     @Test(description = "for second user")
     public  void second_user() throws InterruptedException {
 
+        //Implementation of Extent Reports
+        htmlReporter = new ExtentHtmlReporter("./ExtentReports/TestReport.html");
+        reports = new ExtentReports();
+        reports.attachReporter(htmlReporter);
+
+        //adding info to the report
+        reports.setSystemInfo("Environment","Test");
+        reports.setSystemInfo("Test by","Asif");
+        reports.setSystemInfo("OS","Windows 11 Home");
+        reports.setSystemInfo("Browser","Chrome");
+
+        logger = reports.createTest("For second user");
+
         //First user creation
         driver.get("http://automationpractice.com/index.php");
-        Reporter.log("Opening Automation Practice home page");
+        logger.log(Status.INFO,"Opening Automation Practice home page");
         WebElement signIn = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
         signIn.click();
-        Reporter.log("Opening account creation page");
+        logger.log(Status.INFO,"Opening account creation page");
 
         //email field only page
         WebElement emailAddress = driver.findElement(By.id("email_create"));
-        emailAddress.sendKeys("bluhbluh21@gmail.com");
-        Reporter.log("Email entered");
+        emailAddress.sendKeys("bluhbluh72@gmail.com");
+        logger.log(Status.INFO,"Email entered");
 
         WebElement createAnAccount = driver.findElement(By.xpath("//*[@id=\"SubmitCreate\"]/span"));
         createAnAccount.click();
-        Reporter.log("User creation page opened");
+        logger.log(Status.INFO,"User creation page opened");
         Thread.sleep(3000);
 
         //Actual registration page
@@ -285,16 +325,16 @@ public class AutomationPractice_PrestaShop {
 
 
         title_Mr.click();
-        Reporter.log("title selected");
+        logger.log(Status.INFO,"title selected");
 
         firstName.sendKeys("Atik");
-        Reporter.log("First name entered");
+        logger.log(Status.INFO,"First name entered");
 
         lastName.sendKeys("Khan");
-        Reporter.log("Last name entered");
+        logger.log(Status.INFO,"Last name entered");
 
         password.sendKeys("abc123");
-        Reporter.log("Password entered");
+        logger.log(Status.INFO,"Password entered");
 
         Select slt1 = new Select(dateOfBirthDay);
         slt1.selectByIndex(10);
@@ -304,40 +344,40 @@ public class AutomationPractice_PrestaShop {
         slt3.selectByValue("1996");
 
         newsletter.click();
-        Reporter.log("Newsletter offer in mail accepted");
+        logger.log(Status.INFO,"Newsletter offer in mail accepted");
 
         specialOffers.click();
-        Reporter.log("Special offer in mail accepted");
+        logger.log(Status.INFO,"Special offer in mail accepted");
 
         addressCompany.sendKeys("863-409-4849");
-        Reporter.log("Company name entered");
+        logger.log(Status.INFO,"Company name entered");
 
         addressAddress1.sendKeys("317 Pierce Avenue");
-        Reporter.log("Address entered");
+        logger.log(Status.INFO,"Address entered");
 
         addressAddress2.sendKeys("FL 32818");
-        Reporter.log("Address line 1 entered");
+        logger.log(Status.INFO,"Address line 1 entered");
 
         city.sendKeys("LAKELAND");
-        Reporter.log("City name entered");
+        logger.log(Status.INFO,"City name entered");
 
         Select slt = new Select(state);
         slt.selectByIndex(9);
 
         zip.sendKeys("32818");
-        Reporter.log("Zip/Postal code entered");
+        logger.log(Status.INFO,"Zip/Postal code entered");
 
         addiInfo.sendKeys("Nothing");
-        Reporter.log("Additional info entered");
+        logger.log(Status.INFO,"Additional info entered");
 
         phone.sendKeys("863-409-5898");
-        Reporter.log("Phone number entered");
+        logger.log(Status.INFO,"Phone number entered");
 
         mobile.sendKeys("863-409-4846");
-        Reporter.log("Mobile number entered");
+        logger.log(Status.INFO,"Mobile number entered");
 
         register.click();
-        Reporter.log("Account created successfully");
+        logger.log(Status.INFO,"Account created successfully");
 
         //Dress to Casual dress section
         //here we need to use mouse to hover method because of floating menu
@@ -349,7 +389,7 @@ public class AutomationPractice_PrestaShop {
         action.moveToElement(dresses).perform();
         Thread.sleep(2000);
         action.click(casualDresses).perform();
-        Reporter.log("Casual dresses option selected");
+        logger.log(Status.INFO,"Casual dresses option selected");
 
         //Add to cart
         WebElement printedDress = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/h5/a"));
@@ -358,19 +398,19 @@ public class AutomationPractice_PrestaShop {
         action.moveToElement(printedDress).perform();
         Thread.sleep(2000);
         action.click(addToCart).perform();
-        Reporter.log("Add to cart option clicked");
+        logger.log(Status.INFO,"Add to cart option clicked");
         Thread.sleep(2000);
 
         //continue shopping
         //since it is also a floating tab, we can use mouse hover method
         WebElement continueShopping = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/span/span"));
         action.click(continueShopping).perform();
-        Reporter.log("Continue shopping option clicked");
+        logger.log(Status.INFO,"Continue shopping option clicked");
 
         // Selecting t-shirt tab
         WebElement tShirt = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[3]/a"));
         tShirt.click();
-        Reporter.log("T-Shirt option selected");
+        logger.log(Status.INFO,"T-Shirt option selected");
 
         //Selecting a t-Shirt
         WebElement fadedShortSleeveTShirt = driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[2]/h5/a"));
@@ -378,17 +418,17 @@ public class AutomationPractice_PrestaShop {
 
         action.moveToElement(fadedShortSleeveTShirt).perform();
         action.click(more).perform();
-        Reporter.log("Faded Short Sleeve t-Shirt selected");
+        logger.log(Status.INFO,"Faded Short Sleeve t-Shirt selected");
 
         // choosing Blue color
         WebElement blueColor = driver.findElement(By.id("color_14"));
         blueColor.click();
-        Reporter.log("t-Shirt color blue selected");
+        logger.log(Status.INFO,"t-Shirt color blue selected");
 
         //Adding blue t-shirt to the cart
         WebElement addToCartB = driver.findElement(By.xpath("//*[@id=\"add_to_cart\"]/button/span"));
         addToCartB.click();
-        Reporter.log("Blue t-shirt added to the cart");
+        logger.log(Status.INFO,"Blue t-shirt added to the cart");
         Thread.sleep(2000);
 
         WebElement proceedToCheckout = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span"));
@@ -397,38 +437,43 @@ public class AutomationPractice_PrestaShop {
         //Cart summery page
         WebElement proceedCheckoutSu = driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span"));
         proceedCheckoutSu.click();
-        Reporter.log("Proceed checkout option in Summery clicked");
+        logger.log(Status.INFO,"Proceed checkout option in Summery clicked");
 
         //Address summery
         WebElement proceedCheckoutA = driver.findElement(By.xpath("//*[@id=\"center_column\"]/form/p/button/span"));
         proceedCheckoutA.click();
-        Reporter.log("Proceed checkout option in Address clicked");
+        logger.log(Status.INFO,"Proceed checkout option in Address clicked");
 
         //Shipping summery
         WebElement termsService = driver.findElement(By.id("cgv"));
         WebElement proceedCheckoutSh = driver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span"));
 
         termsService.click();
-        Reporter.log("Terms of services agreed");
+        logger.log(Status.INFO,"Terms of services agreed");
 
         proceedCheckoutSh.click();
-        Reporter.log("Proceed checkout option in Shipping clicked");
+        logger.log(Status.INFO,"Proceed checkout option in Shipping clicked");
 
         //Payment option
         WebElement payByCheck = driver.findElement(By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[2]/div/p/a/span"));
         payByCheck.click();
-        Reporter.log("Pay by check option selected");
+        logger.log(Status.INFO,"Pay by check option selected");
 
         //Placing order
         WebElement confirmOrder = driver.findElement(By.xpath("//*[@id=\"cart_navigation\"]/button/span"));
         confirmOrder.click();
-        Reporter.log("Order confirmed");
+        logger.log(Status.INFO,"Order confirmed successfully");
 
         //Signing off
         WebElement signOut = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[2]/a"));
         signOut.click();
-        Reporter.log("Signed out");
+        logger.log(Status.INFO,"Signed out successfully");
+
+        logger.log(Status.PASS,"Test Passed");
+
+        reports.flush();
 
     }
+
 
 }

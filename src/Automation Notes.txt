@@ -42,7 +42,7 @@ Mouse Hover and click action - Web Element - Actions class
          // Locating the Main Menu (Parent element)
          WebElement mainMenu = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a"));
           // Locating the element from Sub Menu
-         WebElement subMenu   = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]/a"));
+         WebElement subMenu = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]/a"));
 
           //Instantiating Actions class
          Actions action = new Actions(driver);
@@ -163,7 +163,7 @@ TestNG -
 Priority -
 - selenium uses its own priority for test cases - Upper case - Lower case
   example - testCase_valid_001, testCase_invalid_002. Here invalid will run first
-  since its order is first.
+  since its order comes first dor the letter 'i'.
 - So, to call a test according to our choice we can use priority method.
   step - @Test(priority = 0/1/2.. , description = "");
 - priority can be both minus and plus value
@@ -187,7 +187,7 @@ dependsOnMethods-
   we can't send a mail.
 - If the independent test case is failed the dependent test case will not run
 ------------------------------------------------------------------------------------------
-Report Making-
+Report Making - Emailable -
 - we need a xml file to create a report. step - new file - name.xml - right click -
   run
 - next - menu - run - edit config - Listeners - + - add - EmailAndReport - apply
@@ -228,12 +228,50 @@ Data Driven -
 - Poi Common must be used 4.1.2 version else, Xls_Reader with not work
 - if there is still problem then previous version need to used for other libraries
 
-- If we want to write data in the Excel file we need to use setCellData to write
+- If we want to write data in the Excel file we need to use 'setCellData' to write
 ------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------
 
-                                        Class - 16
+                                        Class - 17
+
+Extent Reports - htmlReport -
+- To amke the test report more presentable we can use ExtentReport
+- Maven Repository - extentreports - com.avenstack - version 3.1.5 - add to pom
+- Writing method -
+  // add 3 classes first in the class body
+  ExtentHtmlReporter htmlReporter;
+  ExtentReports reports;
+  ExtentTest logger;
+
+  // Implementation format
+  - create new directory - ExtentReports
+  htmlReporter = new ExtentHtmlReporter("./folderPath/ReportName.pdfOrhtml");
+  reports = new ExtentReports();
+  reports.attachReporter(htmlReporter);
+
+  //for heading we need to use this command in the @Test body
+  reports.setSystemInfo("Title", "message");
+  reports.setSystemInfo("Title", "message");
+  reports.setSystemInfo("Title", "message");
+  // example, title - Environment, message - Windows 11 home
+
+  //for test line we need to use this command
+  logger = reports.createTest("test name");
+
+  // with xml reporter we used to write Reporter.log("message");
+  // here, we will use another command - logger.log
+  logger.log(Status.INFO, "message");
+
+  // if test passed
+  logger.log(Status.Pass, "Test Passed");
+
+  //at the finishing line of the @Test body
+  reports.flush();
+
+  //Now with the xml file we need to add 'SuiteHTMLReporter' in the listener box
+  - open xml file - Run - edit config - Listeners - '+' - htmlReporter
+
 
 
 
