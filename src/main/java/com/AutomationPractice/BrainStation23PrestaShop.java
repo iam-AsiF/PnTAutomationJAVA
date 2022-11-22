@@ -11,7 +11,7 @@ public class BrainStation23PrestaShop extends BaseClass {
 
     public static void main(String[] args) throws InterruptedException {
 
-        chrome_launch();
+        edge_launch();
         first_user();
         quit_browser();
 
@@ -29,7 +29,7 @@ public class BrainStation23PrestaShop extends BaseClass {
         WebElement password = driver.findElement(By.id("passwd"));
         WebElement sign = driver.findElement(By.xpath("//*[@id=\"SubmitLogin\"]/span"));
 
-        email.sendKeys("bluh10@gmail.com");
+        email.sendKeys("bluh11@gmail.com");
         password.sendKeys("abc123");
         sign.click();
 

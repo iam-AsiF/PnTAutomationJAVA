@@ -88,7 +88,7 @@ public class Automation_PrestaShop_HTMLReport {
 
         //email field only page
         WebElement emailAddress = driver.findElement(By.id("email_create"));
-        emailAddress.sendKeys("bluhbluh71@gmail.com");
+        emailAddress.sendKeys("bluhbluh81@gmail.com");
         logger.log(Status.INFO,"Email entered");
 
         WebElement createAnAccount = driver.findElement(By.xpath("//*[@id=\"SubmitCreate\"]/span"));
@@ -285,7 +285,7 @@ public class Automation_PrestaShop_HTMLReport {
 
         logger = reports.createTest("For second user");
 
-        //First user creation
+        //Second user creation
         driver.get("http://automationpractice.com/index.php");
         logger.log(Status.INFO,"Opening Automation Practice home page");
         WebElement signIn = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"));
@@ -294,7 +294,7 @@ public class Automation_PrestaShop_HTMLReport {
 
         //email field only page
         WebElement emailAddress = driver.findElement(By.id("email_create"));
-        emailAddress.sendKeys("bluhbluh72@gmail.com");
+        emailAddress.sendKeys("bluhbluh82@gmail.com");
         logger.log(Status.INFO,"Email entered");
 
         WebElement createAnAccount = driver.findElement(By.xpath("//*[@id=\"SubmitCreate\"]/span"));

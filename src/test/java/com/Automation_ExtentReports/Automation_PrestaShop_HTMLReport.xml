@@ -3,7 +3,7 @@
 <suite name = "E-commerce Test">
 
     <test name="Automation testing by BrainStation23">
-        <parameter name="browsers" value="edge"></parameter>
+        <parameter name="browsers" value="chrome"></parameter>
         <classes>
             <class name="com.Automation_ExtentReports.Automation_PrestaShop_HTMLReport"></class>
         </classes>
